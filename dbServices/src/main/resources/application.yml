@@ -1,0 +1,50 @@
+server:
+  port: 9009
+security:
+  user:
+    password: password
+spring:
+  mvc:
+    dispatch-options-request: true
+  queries:
+    users-query: select email, password, active from users where email=?
+    roles-query: select u.email, r.role from users u inner join user_role ur on(u.user_id=ur.user_id) inner join role r on(ur.role_id=r.role_id) where u.email=?
+  application:
+    name: ems
+  datasource:
+    url: jdbc:postgresql://10.18.1.30:5432/postgres
+    username: postgres
+    password: root
+    driverClassName: org.postgresql.Driver
+    validation-query: SELECT 1
+  jpa:
+    package-to-scan: com.modules.microServices.dbServices.domain
+    show-sql: true
+    database: postgresql
+    properties:
+      hibernate:
+        dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect
+    hibernate:
+      ddl-auto: update
+      format_sql: true
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy    
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: hcitsfonest@gmail.com
+    password: nest@123
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+logging:
+  path: logs
+  level:
+    org.springframework.web: ERROR
+    org.springframework.security: DEBUG
+mail: 
+  meeting: 
+    organizer: hcitsfonest@gmail.com
+    location: HealthCare

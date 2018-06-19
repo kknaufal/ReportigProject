@@ -1,0 +1,50 @@
+<configuration>
+	<appender name="FILE1"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/application.log</file>		
+		<encoder>
+			<Pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level
+				%logger{36}.%M - %msg%n</Pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/archived/application_%d{dd-MM-yyyy}.log
+			</fileNamePattern>
+			<maxHistory>10</maxHistory>
+			<totalSizeCap>100MB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="FILE2"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/framework.log</file>
+		<encoder>
+			<Pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level
+				%logger{36}.%M - %msg%n</Pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/archived/framework_%d{dd-MM-yyyy}.log
+			</fileNamePattern>
+			<maxHistory>10</maxHistory>
+			<totalSizeCap>100MB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level
+				%logger{36}.%M - %msg%n</Pattern>
+		</encoder>
+	</appender>
+	<logger name="com.modules.microServices.dbServices" level="ERROR">
+		<appender-ref ref="FILE1" />
+	</logger>
+
+	<logger name="org.springframework" level="ERROR">
+		<appender-ref ref="FILE2" />
+	</logger>
+
+	<root level="DEBUG">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>
