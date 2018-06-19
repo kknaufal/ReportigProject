@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Login V15</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="login-css/login-util.css">
+<link rel="stylesheet" type="text/css" href="login-css/login-main.css">
+<!--===============================================================================================-->
+</head>
+
+<body>
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title"
+					style="background-image: url(images/bg-01.jpg);">
+					<span class="login100-form-title-1"> Sign In </span>
+				</div>
+
+				<form class="login100-form validate-form" th:action="@{/login}"
+					action="/login" method="POST">
+					<div class="wrap-input100 validate-input m-b-26"
+						data-validate="Username is required">
+						<span class="label-input100">Username</span> <input
+							class="input100" type="text" name="username"
+							placeholder="Enter username" required> <span
+							class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18"
+						data-validate="Password is required">
+						<span class="label-input100">Password</span> <input
+							class="input100" type="password" name="password"
+							placeholder="Enter password" required> <span
+							class="focus-input100"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">Login</button>
+						<p th:if="${loginError}" class="error"
+							style="color: red; padding-top: 1em; padding-left: 1em;">Wrong
+							user or password</p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+</html>
