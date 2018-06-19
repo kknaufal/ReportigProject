@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/bundle.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid" style="height:100%" ng-controller="systemController as sysCtrl">
+        <div class="card h-100">
+            <!--  -->
+            <div class=" card-header header">
+                <div class="row">
+                    <div class=" col-md-3">
+                        <img src="" class="logo" ;/>
+                    </div>
+                    <div class=" col-md-5"></div>
+                    <div class=" col-md-4">
+                        <ul class="nav navbar-nav float-right user">
+                            <li class="dropdown">
+                                <img src="" class="rounded-circle img-fluid  pull-left " />
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">{{loggedUser}}
+                                    <span class="glyphicon glyphicon-user pull-right"></span>
+                                </a>
+                                <ul class="dropdown-menu ">
+                                    <li>
+                                        <a href="/logout">logout</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body cardBody">
+                <div class="row rowStyle">
+                    <div class=" col-md-2  bhoechie-tab-menu">
+                        <div class="list-group sideBar">
+                            <a ui-sref="rurreports" class="list-group-item listItems statistics" ng-class="{ active: sysCtrl.isSet(1) }" ng-click="sysCtrl.setTab(1)">
+                                Resource Utilisation Report </a>
+                            <a ui-sref="tsreport" class="list-group-item  listItems practiceDetails" ng-class="{ active: sysCtrl.isSet(2) }" ng-click="sysCtrl.setTab(2)">
+                            Timesheet Report</a>
+                            <a ui-sref="rhreport" class="list-group-item  listItems settings" ng-class="{ active: sysCtrl.isSet(3) }" ng-click="sysCtrl.setTab(3)">
+                                Resources Hours Report </a>
+                            <!-- <a ui-sref="" class="list-group-item  listItems settings" ng-class="{ active: sysCtrl.isSet(3) }" ng-click="sysCtrl.setTab(3)">
+                            System Setting </a> -->
+                        </div>
+                    </div>
+                    <div class=" col-md-10 bhoechie-tab">
+                        <!-- flight section -->
+                        <div class="bhoechie-tab-content active">
+                            <div ui-view></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer footer text-white">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-1">
+                        <!-- <a href="#">HOME</a> -->
+                    </div>
+                    <div class="col-md-1 ">
+                        <!-- <a href="#">SEARCH</a> -->
+                    </div>
+                    <div class="col-md-1">
+                        <!-- <a href="#">HELP</a> -->
+                    </div>
+                    <div class="col-md-2">
+                        <!-- <a href="#">PRIVACY</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-ng-if="loading" id="loadingWidget" class="fullscreen row-fluid ui-corner-all" style="padding: 0 .7em;" loading-widget>
+            <div class="overlay-content">
+                <p>
+                    <img alt="Loading  Content" src="images/ajax-loader.gif" /> Loading
+                </p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

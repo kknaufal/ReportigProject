@@ -1,0 +1,51 @@
+{
+  "name": "po-report-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "naufal",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.6.10",
+    "angular-animate": "^1.6.10",
+    "angular-aria": "^1.6.10",
+    "angular-material": "^1.1.8",
+    "angular-messages": "^1.6.10",
+    "angular-ui-grid": "^4.4.7",
+    "bootstrap": "^4.0.0",
+    "browserify": "^16.2.0",
+    "browserify-ngannotate": "^2.0.0",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-cachebust": "0.0.10",
+    "gulp-concat": "^2.6.1",
+    "gulp-install": "^1.1.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-karma": "0.0.5",
+    "gulp-ng-html2js": "^0.2.2",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-webserver": "^0.9.1",
+    "gulp.spritesmith": "^6.9.0",
+    "jquery": "^3.3.1",
+    "jshint": "^2.9.5",
+    "jshint-stylish": "^2.2.1",
+    "karma": "^2.0.2",
+    "popper": "^1.0.1",
+    "popper.js": "^1.14.3",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "angular-ui-router": "^1.0.3",
+    "csv": "^3.0.2",
+    "excel-builder": "^2.0.3",
+    "jszip": "^3.1.5",
+    "pdfmake": "^0.1.36"
+  }
+}

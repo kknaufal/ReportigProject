@@ -1,0 +1,75 @@
+<div class="card cardRow">
+    <form ng-submit="tsrCtrl.search()">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h3>Timesheet Reports for ISO-016-PCI </h3>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 form-inline">
+                <div class="col-md-2">
+                    <md-radio-group ng-model="tsrCtrl.selectionByDate" layout="row">
+                        <md-radio-button value="lastWeek" class="md-primary" [checked]='true'>Last week</md-radio-button>
+                        <md-radio-button value="dateRange">Date Range </md-radio-button>
+                    </md-radio-group>
+                </div>
+                <div class="col-md-2">
+                    <md-input-container>
+                        <md-datepicker ng-model="tsrCtrl.searchParam.searchFromDate" md-placeholder="Enter date" ng-disabled="tsrCtrl.disableDate"
+                            md-open-on-focus required></md-datepicker>
+                    </md-input-container>
+                </div>
+                <div class="col-md-2">
+                    <md-input-container>
+                        <md-datepicker ng-model="tsrCtrl.searchParam.searchToDate" md-placeholder="Enter date" ng-disabled="tsrCtrl.disableDate"
+                            md-open-on-focus required></md-datepicker>
+                    </md-input-container>
+                </div>
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-default">Search</button>
+                </div>
+                <div class="col-md-1">
+                    <md-input-container>
+                        <button ng-click="tsrCtrl.export($event)" ng-disabled="tsrCtrl.exportDisabled" class="btn">Export</button>
+                    </md-input-container>
+                </div>
+                <div class="col-md-1">
+                    <div class="custom-csv-link-location">
+                        <span class="ui-grid-exporter-csv-link">&nbsp;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-8"></div>
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-2" style="height: 30px;">
+                <!-- <div ng-show="tsrCtrl.gridStatusVisible" id="loadingWidget" class="row-fluid ui-corner-all" style="padding: 0 .7em;" loading-widget>
+                    <div class="form-inline">
+                        <p>
+                            <img alt="Loading  Content" src="images/ajax-loader.gif" /> Loading
+                        </p>
+                    </div>
+                </div> -->
+                <span style="color:red">{{tsrCtrl.gridMessage}}</span>
+            </div>
+
+            <div class="col-md-8">
+                <div id="grid1" ui-grid="tsrCtrl.gridOptions" ui-grid-selection ui-grid-exporter style="height:64vh; width:148vh;"></div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</div>
